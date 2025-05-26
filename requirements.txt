@@ -1,0 +1,13 @@
+googlesearch-python
+newspaper3k
+nltk
+pandas
+beautifulsoup4
+spacy
+# requests-html # aljazeera_crawler.py 를 현재 사용하지 않는다면 주석 처리 또는 삭제
+schedule
+supabase
+Flask
+Flask-CORS
+python-dotenv
+pytz

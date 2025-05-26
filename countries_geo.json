@@ -1,0 +1,142 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "ADMIN_NAME": "Ukraine",
+          "ISO_A2_CODE": "UA",
+          "CONTINENT": "Europe",
+          "REGION_WB": "Europe & Central Asia",
+          "POP_EST": 36744634,
+          "GDP_MD_EST": 160503,
+          "CATEGORY_TAG": "ConflictZone_Active",
+          "SPECIAL_STATUS": "War_Ongoing"
+        },
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [/* 우크라이나 지리 경계 좌표 (실제 데이터 필요) */]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ADMIN_NAME": "Russia",
+          "ISO_A2_CODE": "RU",
+          "CONTINENT": "Europe",
+          "REGION_WB": "Europe & Central Asia",
+          "POP_EST": 144444359,
+          "GDP_MD_EST": 1775800,
+          "CATEGORY_TAG": "MajorPower_ConflictParticipant",
+          "SPECIAL_STATUS": "War_Ongoing_Aggressor"
+        },
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [/* 러시아 지리 경계 좌표 (실제 데이터 필요) */]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ADMIN_NAME": "Israel",
+          "ISO_A2_CODE": "IL",
+          "CONTINENT": "Asia",
+          "REGION_WB": "Middle East & North Africa",
+          "POP_EST": 9364000,
+          "GDP_MD_EST": 522030,
+          "CATEGORY_TAG": "ConflictZone_Active",
+          "SPECIAL_STATUS": "Ongoing_Conflict_Gaza"
+        },
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [/* 이스라엘 지리 경계 좌표 (실제 데이터 필요) */]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ADMIN_NAME": "Palestine",
+          "ISO_A2_CODE": "PS",
+          "CONTINENT": "Asia",
+          "REGION_WB": "Middle East & North Africa",
+          "POP_EST": 5227193,
+          "GDP_MD_EST": 18817,
+          "CATEGORY_TAG": "ConflictZone_Active_Occupied",
+          "SPECIAL_STATUS": "Ongoing_Conflict_Gaza_WestBank"
+        },
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [/* 팔레스타인 지리 경계 좌표 (실제 데이터 필요) */]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ADMIN_NAME": "United States of America",
+          "ISO_A2_CODE": "US",
+          "CONTINENT": "North America",
+          "REGION_WB": "North America",
+          "POP_EST": 334805269,
+          "GDP_MD_EST": 25462700,
+          "CATEGORY_TAG": "MajorPower_GlobalInfluence",
+          "SPECIAL_STATUS": "Key_NATO_Member"
+        },
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [/* 미국 지리 경계 좌표 (실제 데이터 필요) */]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ADMIN_NAME": "China",
+          "ISO_A2_CODE": "CN",
+          "CONTINENT": "Asia",
+          "REGION_WB": "East Asia & Pacific",
+          "POP_EST": 1425671352,
+          "GDP_MD_EST": 17734063,
+          "CATEGORY_TAG": "MajorPower_GlobalInfluence_Rising",
+          "SPECIAL_STATUS": "Taiwan_Tensions"
+        },
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [/* 중국 지리 경계 좌표 (실제 데이터 필요) */]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ADMIN_NAME": "Sudan",
+          "ISO_A2_CODE": "SD",
+          "CONTINENT": "Africa",
+          "REGION_WB": "Sub-Saharan Africa",
+          "POP_EST": 48109006,
+          "GDP_MD_EST": 51661,
+          "CATEGORY_TAG": "ConflictZone_CivilWar",
+          "SPECIAL_STATUS": "Humanitarian_Crisis"
+        },
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [/* 수단 지리 경계 좌표 (실제 데이터 필요) */]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "ADMIN_NAME": "South Korea",
+          "ISO_A2_CODE": "KR",
+          "CONTINENT": "Asia",
+          "REGION_WB": "East Asia & Pacific",
+          "POP_EST": 51780579,
+          "GDP_MD_EST": 1665250,
+          "CATEGORY_TAG": "DevelopedNation_RegionalPower",
+          "SPECIAL_STATUS": "DMZ_Tensions_ROKArmyFocus"
+        },
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [/* 대한민국 지리 경계 좌표 (실제 데이터 필요) */]
+        }
+      }
+      // ... 다른 국가들의 정보도 비슷한 방식으로 추가 ...
+    ]
+  }

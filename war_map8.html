@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore an interactive map of global conflicts and stay updated with the latest related news. Track ongoing situations worldwide.">
+    <meta name="keywords" content="conflict, war, news, map, international affairs, global conflict, war map, current events">
+    <title>Global Conflict Map & Real-time News</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous"/>
+    <!--link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"
+          integrity="sha256-1QoY4QPxL4szLSpD3M9s7Zac9QM9BBKF7W0Qe2sD5D4=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"
+          integrity="sha256-lS4veGzFVn8FbO+dnWHhZz9Ca31A65i+qN0n1QJkQxQ=" crossorigin="anonymous"/-->
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+    <noscript>
+        <div class="noscript-message">
+            This website requires JavaScript to function properly. Please enable JavaScript in your browser settings.
+        </div>
+    </noscript>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="header" role="banner">
+        <div class="header-content">
+            <h1 class="logo">Live Conflict Map</h1>
+            <div class="current-date" id="current-date-display" aria-live="polite">
+                </div>
+        </div>
+    </header>
+
+    <nav class="nav-controls" aria-label="Map and News Filters">
+        <div class="controls-wrapper">
+            <div class="control-group">
+                <label for="country-select">Focus on Country:</label>
+                <select id="country-select" aria-describedby="country-select-description">
+                    <option value="world">World View</option>
+                </select>
+                <p id="country-select-description" class="sr-only">Select a country to focus the map and display related information.</p>
+            </div>
+
+            <section class="add-marker-section collapsed" id="add-marker-section" aria-labelledby="add-marker-heading">
+                <h2 class="section-title" id="add-marker-heading">
+                    <button type="button" id="add-marker-toggle" aria-expanded="false" aria-controls="add-marker-form-content">
+                        Add New Event Marker (Click to Expand/Collapse)
+                    </button>
+                </h2>
+                <div class="add-marker-form-content" id="add-marker-form-content" role="region" aria-hidden="true">
+                    <form id="add-marker-form">
+                        <div class="form-row">
+                            <label for="marker-name">Name:</label>
+                            <input type="text" id="marker-name" name="markerName" required placeholder="e.g., Peace Summit">
+                        </div>
+                        <div class="form-row">
+                            <label for="marker-lat">Latitude:</label>
+                            <input type="number" id="marker-lat" name="markerLat" step="any" required placeholder="-90 to 90">
+                        </div>
+                        <div class="form-row">
+                            <label for="marker-lng">Longitude:</label>
+                            <input type="number" id="marker-lng" name="markerLng" step="any" required placeholder="-180 to 180">
+                        </div>
+                        <div class="form-row">
+                            <label for="marker-info">Information:</label>
+                            <textarea id="marker-info" name="markerInfo" rows="3" placeholder="Enter a brief description."></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="button button-primary">Add Marker</button> <button type="button" id="clear-markers-btn" class="button button-danger">Clear All User Markers</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </nav>
+
+    <div class="main-layout-grid">
+        <aside class="news-feed" role="complementary" aria-labelledby="news-feed-heading">
+            <div class="news-feed-header">
+                <h2 id="news-feed-heading" class="section-title">Latest News</h2>
+                <div class="filter-controls-container">
+                    <div class="date-filter-container">
+                        <label for="news-date-picker">Filter by Date:</label>
+                        <input type="date" id="news-date-picker" aria-label="News date filter">
+                    </div>
+                    <div class="keyword-search-container">
+                        <label for="keyword-search-input">Search News:</label>
+                        <input type="search" id="keyword-search-input" placeholder="Enter keywords..." aria-label="News keyword search">
+                        <button id="keyword-search-btn" type="button" class="button button-secondary">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div id="news-feed-items-wrapper" aria-live="polite">
+                <p class="loading-news">Loading news data...</p>
+            </div>
+            <div class="news-navigation">
+                <button id="prev-news-btn" type="button" class="button" aria-label="Previous news page">&laquo; Previous</button>
+                <span id="news-status-display" aria-live="polite"></span> <button id="next-news-btn" type="button" class="button" aria-label="Next news page">Next &raquo;</button>
+            </div>
+        </aside>
+
+        <main class="map-container" id="main-content" role="main">
+            <div id="ui-message-area" class="ui-message-container" aria-live="assertive" role="alert">
+            </div>
+            <div id="map" aria-label="Conflict Areas Map">
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <p>&copy; <span id="current-year">2025</span> Live Conflict Map. All rights reserved (For informational purposes only).</p>
+            <p><a href="#about" class="footer-link">About</a> | <a href="#sources" class="footer-link">Data Sources</a> | <a href="#contact" class="footer-link">Contact</a></p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous" defer></script>
+    <!--script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"
+            integrity="sha256-poMIcsGZ5TwzH2n8D1kEVGz8I8P3M8YI122p1gR29ZM=" crossorigin="anonymous" defer></script-->
+    <script src="script.js" defer></script>
+</body>
+</html>
+
